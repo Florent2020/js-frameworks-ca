@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# JS Frameworks Course Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Brief
 
-## Available Scripts
+Create either a new React or Next.js app in this repo.
 
-In the project directory, you can run:
+For the login functionality, use either a Wordpress installation with the <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/" target="_blank">JWT plugin from Module 3</a> installed, or a Strapi installation. Do not add either of these to your repo. Your API should remain a separate project. The markers will use their own installations when marking.
 
-### `npm start`
+You can use either a REST or GraphQL API for the API calls.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Level 1
 
-### `npm test`
+Your app should have the following paths:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   "/"
+-   "/detail/:param"
+-   "/contact"
+-   "/login"
+-   "/admin"
 
-### `npm run build`
+The admin path won't appear in your navigation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use reusable components where appropriate and pay attention to how the components are arranged.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Home
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Find an API that returns at least:
 
-### `npm run eject`
+-   an array of items
+-   a single item retrieved by a parameter (id, name, slug, etc)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you are using Next you can also hard-code json and return it from API routes created in `pages/api/*`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can use your own Wordpress or Strapi or any other API that you have created for these calls but it must be publically hosted - it must not be running on your localhost.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Display at least 2 properties from each result.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Each result should link to the detail page, passing a parameter in the URL.
 
-## Learn More
+### Detail
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Retrieve the parameter from the URL and use it in an API call to fetch one item.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Display at least 3 properties from the item.
 
-### Code Splitting
+### Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create a form with the following inputs and validation:
 
-### Analyzing the Bundle Size
+-   First name - required, minimum 3 characters
+-   Last name - required, minimum 4 characters
+-   Email - required, must be in a valid email format
+-   Subject - required, this must be a select box with at least 2 options
+-   Message - required, minimum 10 characters.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Login
 
-### Making a Progressive Web App
+Create a form with username/email and password fields. The inputs should have the necessary validation for a login form (not a registration form).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The form should make a login request to either a Wordpress API with the JWT plugin installed or a Strapi API. If the login is successful redirect the user to the admin route.
 
-### Advanced Configuration
+If the login is unsuccessful display a message above the form.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Admin
 
-### Deployment
+This page will simply display an "Admin" heading.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Level 2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Add a favourite button/icon component to each result on your home page. Clicking this button will toggle the result in/out of a favourites array.
+
+Add a "/favourites" path to your routes. This page will display all the items currently in the favourites array.
